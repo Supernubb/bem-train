@@ -1,7 +1,5 @@
-@import "fonts",
-"globals",
-"media",
-"mixins",
-"normalize",
-"utils",
-"variables";
+// служебные стили
+@import "normalize", "variables", "fonts", "mixins", "utils", "globals";
+
+// стили компонентов
+@import "blocks/section";
