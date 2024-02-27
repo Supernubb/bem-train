@@ -1,0 +1,34 @@
+// контейнер
+.container {
+    max-width: $container-width + $container-padding-x*2;
+    margin-inline: auto;
+    padding-inline: $container-padding-x;
+}
+
+// скрытие элемента
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+}
+
+// скрытие на мобильных
+.hidden-mobile {
+    @include mobile {
+        display: none !important;
+    }
+}
+
+// показ на выше мобильных
+.visible-mobile {
+    @include mobile-above {
+        display: none !important;
+    }
+}

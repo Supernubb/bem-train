@@ -1,0 +1,103 @@
+// адаптивный размер шрифта
+@mixin fluid-text($max: 48, $min: 16) {
+    font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+}
+
+// сброс стилей ссылки
+@mixin reset-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+// сброс стилей кнопки
+@mixin reset-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+// флекс центрирование
+@mixin flex-center($isInline: false) {
+    @if $isInline {
+        display: inline-flex;
+    }
+
+    @else {
+        display: flex;
+    }
+
+    align-items: center;
+    justify-content: center;
+}
+
+// абсолютное центрирование
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+}
+
+// квадратное отображение
+@mixin square($size) {
+    width: $size;
+    aspect-ratio: 1;
+}
+
+// медиа-запросы
+// до десктопа
+@mixin desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}
+
+// от десктопа
+@mixin desktop-above {
+    @media (min-width: $desktop-above) {
+        @content;
+    }
+}
+
+// до планшета
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+// от планшета
+@mixin tablet-above {
+    @media (min-width: $tablet-above) {
+        @content;
+    }
+}
+
+// до мобильного
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+// от мобильного
+@mixin mobile-above {
+    @media (min-width: $mobile-above) {
+        @content;
+    }
+}
+
+// hover для мобильных устройств
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}
